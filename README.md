@@ -1,90 +1,69 @@
 # stc-answer
 
-让 coding agent 用简明技术中文写说明。关系必须看见才能懂时，回答是一页 HTML。
+stc-answer 是一份 agent 技能。它约束中文的用词和句长。关系复杂时，读者得到一页 HTML。
 
 ```bash
 npx skills add A3S-Lab/stc-answer -g -y --all
 ```
 
-需要 Node.js 20 或更高版本。渲染器已经在技能目录里，不必 `npm install`。
+需要 Node.js 20 或更高版本。渲染器在技能目录里。不必 `npm install`。
 
-## 为什么用它
+## 回答路径
 
-一句里有多件事时，读者会读错。同一个概念有多个词时，读者也会读错。简明技术中文限制句长和用词。本仓库把这套规则交给 coding agent。
+| 从 | 到 | 动作 |
+| --- | --- | --- |
+| 用户 | agent | 提问 |
+| agent | 检查脚本 | 提交中文稿 |
+| 检查脚本 | 渲染器 | 必须项为 0 |
+| 渲染器 | 读者 | 一页 HTML |
 
-## 改写前后
+短事实不走这条路径。agent 直接在对话里写中文短句。
 
-改写前：
+## 三份来源
 
-```text
-用户首先需要登陆到目标服务器，然后切换到 /opt 目录并且创建一个用于存放采集器配置文件以及运行时产生的临时数据的工作目录。
-```
+| 部分 | 管什么 | 来源 |
+| --- | --- | --- |
+| 中文规则 | 用词和句长 | 简明技术中文 0.2 |
+| 英文句子 | 句长和语态 | `ste-lint.py` |
+| 页面 | 把稿排成 HTML | `am.mjs` 0.4.9 |
 
-改写后：
+中文规则在 [`stc/规范.md`](skills/stc-answer/stc/规范.md)。词表在 [`stc/词表.md`](skills/stc-answer/stc/词表.md)。检查脚本是 [`stc/tools/check.py`](skills/stc-answer/stc/tools/check.py)。
 
-1. 登录目标服务器。
-2. 切换到 `/opt` 目录。
-3. 创建工作目录 `/opt/collector`。工作目录存放配置文件和临时数据。
-
-全文在 [`skills/stc-answer/stc/examples/`](skills/stc-answer/stc/examples/)。
-
-## 你说什么，Agent 做什么
-
-| 你说 | Agent 做的事 |
+| 来源 | 许可 |
 | --- | --- |
-| 讲讲 TCP 三次握手 | 写中文短稿，生成一页 HTML |
-| 把这段说明改清楚 | 按简明技术中文改写，不出页面 |
-| 用英文改写这条工具说明 | 按英文结构规则改写，并用 `ste-lint.py` 检查 |
-| `ls` 怎么看隐藏文件 | 一两句中文，不出页面 |
+| [mzopedia/simplified-technical-chinese](https://github.com/mzopedia/simplified-technical-chinese) 0.2 | 文本 CC BY 4.0，脚本 MIT |
+| [danyuchn/asd-ste100-skill](https://github.com/danyuchn/asd-ste100-skill) | MIT |
+| [QingYunA/answer-me-with-html](https://github.com/QingYunA/answer-me-with-html) 0.4.9 | MIT |
 
-技能怎么判断，写在 [`skills/stc-answer/SKILL.md`](skills/stc-answer/SKILL.md)。
+许可细节在 [NOTICE](NOTICE)。
+
+## 两路输出
+
+| 条件 | 输出 |
+| --- | --- |
+| 一两句能说清 | 对话中的中文短句 |
+| 必须看见关系 | 一页 HTML |
+| 只改写已有文字 | 对话中的改写结果 |
+| 句子本身是英文 | 通过结构检查的英文 |
+
+技能怎么判断，写在 [`SKILL.md`](skills/stc-answer/SKILL.md)。
 
 ## 边界
 
-- 中文遵循简明技术中文 0.2。操作句不超过 30 字。描述句不超过 40 字。规范在 [`stc/规范.md`](skills/stc-answer/stc/规范.md)。
-- 英文只检查句子结构。脚本是 [`scripts/ste-lint.py`](skills/stc-answer/scripts/ste-lint.py)。本仓库没有 ASD-STE100 词典。
-- 不用于营销文案、法律原文和代码本身。
+它不是 ASD-STE100 的译本。仓库不含 ASD 词典。它与 ASD 没有关系。
 
-简明技术中文按中文重写了规则。它不是 ASD-STE100 的译本，与 ASD 没有关系。官方英文文本向 [asd-ste100.org](https://www.asd-ste100.org/STE_downloads.html) 申请。
+官方英文文本向 [asd-ste100.org](https://www.asd-ste100.org/STE_downloads.html) 申请。
 
-## 只装一个 agent
+技能名是 `stc-answer`。仓库地址也是 `stc-answer`。
 
-```bash
-npx skills add A3S-Lab/stc-answer -g -y -a grok
-```
+## 安装
 
-把 `grok` 换成 `claude-code`、`codex` 或 `cursor`。安装器是 [vercel-labs/skills](https://github.com/vercel-labs/skills)。
+1. 运行下面的安装命令。
+2. 新开一个 agent 会话。
 
-装进当前项目时，去掉 `-g`。同一技能只装一份。两份指令会同时生效。
+只装 Grok 时，把 `--all` 换成 `-a grok`。装好后，Grok 的目录是 `~/.grok/skills/stc-answer`。
 
-给执行安装的 Agent 的步骤在 [INSTALL.md](INSTALL.md)。
-
-## 手动复制
-
-把 `skills/stc-answer` 复制到下表的目录。
-
-| Agent | 全局目录 |
-| --- | --- |
-| Claude Code | `~/.claude/skills/stc-answer` |
-| Codex | `~/.codex/skills/stc-answer` |
-| Cursor | `~/.cursor/skills/stc-answer` |
-| GitHub Copilot | `~/.copilot/skills/stc-answer` |
-| Gemini CLI | `~/.gemini/skills/stc-answer` |
-| Grok | `~/.grok/skills/stc-answer` |
-| OpenCode | `~/.config/opencode/skills/stc-answer` |
-| 读取 `.agents/skills` 的 agent | `~/.agents/skills/stc-answer` |
-
-各 agent 的项目目录以 `npx skills add --help` 为准。
-
-## 来源
-
-| 来源 | 用了什么 | 许可 |
-| --- | --- | --- |
-| [mzopedia/simplified-technical-chinese](https://github.com/mzopedia/simplified-technical-chinese) 0.2 | 中文规范、词表、`stc/tools/check.py` | 文本 CC BY 4.0，脚本 MIT |
-| [danyuchn/asd-ste100-skill](https://github.com/danyuchn/asd-ste100-skill) | 英文结构规则，以及 `scripts/ste-lint.py` | MIT |
-| [QingYunA/answer-me-with-html](https://github.com/QingYunA/answer-me-with-html) 0.4.9 | 单页 HTML 渲染器 `scripts/am.mjs` | MIT |
-
-许可细节在 [NOTICE](NOTICE)。
+其他 agent 的步骤在 [INSTALL.md](INSTALL.md)。
 
 ## 本地检查
 
@@ -98,12 +77,12 @@ python3 skills/stc-answer/stc/tools/check.py --strict skills/stc-answer/stc/规�
 
 <!-- stc:off -->
 
-stc-answer is an agent skill. It writes Simplified Technical Chinese. A complex answer becomes one HTML page.
+stc-answer is an agent skill. It limits Chinese wording and sentence length. A complex answer becomes one HTML page.
 
 ```bash
 npx skills add A3S-Lab/stc-answer -g -y --all
 ```
 
-HTML pages need Node.js 20 or newer. The skill directory is `skills/stc-answer`. This repository omits the ASD-STE100 dictionary.
+HTML pages need Node.js 20 or newer. This repository omits the ASD-STE100 dictionary.
 
 <!-- stc:on -->
