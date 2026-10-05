@@ -1,0 +1,21 @@
+This skill combines two MIT projects. It does not include the text of
+ASD-STE100 or its approved-word dictionary.
+
+- Writing rules and scripts/ste-lint.py
+  Upstream: https://github.com/danyuchn/asd-ste100-skill
+  Commit: 32511c6992ecb5f1971e46a2943f2e6adceedafe
+  Copyright (c) 2026 Dustin Yuchen Teng
+
+- HTML renderer scripts/am.mjs (Answer me with HTML 0.4.9)
+  Upstream: https://github.com/QingYunA/answer-me-with-html
+  Commit: 8653e0f04bb65a7b73510d44e86bf41688d71a5c
+  Copyright (c) 2026 Answer me with HTML contributors
+  The upstream build generates that file. Do not edit it here.
+  Replace it by copying a newer skills/answer-me-with-html/scripts/am.mjs
+  from that repository.
+
+ASD-STE100 Issue 9 is the authority for approved English wording.
+Request it from https://www.asd-ste100.org/STE_downloads.html.
+The Chinese checks inside am.mjs follow the lists shipped by
+Answer me with HTML. Those lists cite Simplified Technical Chinese:
+https://github.com/mzopedia/simplified-technical-chinese
