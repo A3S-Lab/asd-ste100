@@ -1,6 +1,8 @@
-# asd-ste100
+# stc-answer
 
 给主流 coding agent 用的一份技能。中文用简明技术中文（STC）。这是 ASD-STE100 的中文替代规范：40 条编号规则，约 170 条受控词，以及一个检查脚本。它不是 ASD-STE100 的译本，与 ASD 没有关系。
+
+安装地址是 `A3S-Lab/stc-answer`。技能文件仍在 `skills/asd-ste100`。
 
 问题需要看见关系才能懂时，Agent 只写一份短 Markdown 稿，自带命令把它排成一页 HTML。
 
@@ -19,7 +21,7 @@ ASD-STE100 的正文和约 900 词词典不在本仓库。官方文本向 [asd-s
 一条命令装到本机已识别的全部 agent：
 
 ```bash
-npx skills add A3S-Lab/asd-ste100 -g -y --all
+npx skills add A3S-Lab/stc-answer -g -y --all
 ```
 
 只装当前这个 agent 时，把 `--all` 换成它的名字，例如 `-a grok`、`-a claude-code`、`-a codex`、`-a cursor`。安装器是 [vercel-labs/skills](https://github.com/vercel-labs/skills)。
@@ -65,5 +67,5 @@ python3 skills/asd-ste100/stc/tools/check.py --strict skills/asd-ste100/stc/规�
 ## English
 
 <!-- stc:off -->
-One Agent Skills package. Chinese text uses Simplified Technical Chinese (STC). STC has its own rules and word list. It is not a translation of ASD-STE100. A complex answer becomes one HTML page through the bundled `am` renderer. `scripts/ste-lint.py` checks English structure. Install with `npx skills add A3S-Lab/asd-ste100 -g -y --all`. This repository does not include the ASD-STE100 dictionary.
+One Agent Skills package. Chinese text uses Simplified Technical Chinese (STC). STC has its own rules and word list. It is not a translation of ASD-STE100. A complex answer becomes one HTML page through the bundled `am` renderer. `scripts/ste-lint.py` checks English structure. Install with `npx skills add A3S-Lab/stc-answer -g -y --all`. This repository does not include the ASD-STE100 dictionary.
 <!-- stc:on -->
