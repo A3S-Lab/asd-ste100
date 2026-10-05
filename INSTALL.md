@@ -1,8 +1,8 @@
-# 安装 asd-ste100
+# 安装 stc-answer
 
 这份说明写给执行安装的 Agent。人也可以按同样的步骤做。
 
-目标：当前 Agent 能读到技能 `asd-ste100`，并且 `node <技能目录>/scripts/am.mjs --version` 打印版本号。
+目标：当前 Agent 能读到技能 `stc-answer`，并且 `node <技能目录>/scripts/am.mjs --version` 打印版本号。
 
 ## 规则
 
@@ -17,29 +17,29 @@
 2. 查找已有安装：
 
 ```bash
-ls -d ~/.grok/skills/asd-ste100 ~/.claude/skills/asd-ste100 ~/.codex/skills/asd-ste100 ~/.cursor/skills/asd-ste100 ~/.agents/skills/asd-ste100 ~/.copilot/skills/asd-ste100 ~/.gemini/skills/asd-ste100 ~/.config/opencode/skills/asd-ste100 2>/dev/null
+ls -d ~/.grok/skills/stc-answer ~/.claude/skills/stc-answer ~/.codex/skills/stc-answer ~/.cursor/skills/stc-answer ~/.agents/skills/stc-answer ~/.copilot/skills/stc-answer ~/.gemini/skills/stc-answer ~/.config/opencode/skills/stc-answer 2>/dev/null
 ```
 
 3. 没有安装时，装到当前 Agent：
 
 ```bash
-npx skills add A3S-Lab/asd-ste100 -g -y -a <当前 agent 名>
+npx skills add A3S-Lab/stc-answer -g -y -a <当前 agent 名>
 ```
 
 当前 Agent 的名字以 `npx skills add --help` 为准。常见名字：`grok`、`claude-code`、`codex`、`cursor`、`github-copilot`、`gemini-cli`、`opencode`、`cline`。
 
-安装器不认识这个名字时，把仓库里的 `skills/asd-ste100` 目录复制到该 Agent 的 skills 目录。Grok 用 `~/.grok/skills/asd-ste100`。Claude Code 用 `~/.claude/skills/asd-ste100`。Codex 用 `~/.codex/skills/asd-ste100`。Cursor 用 `~/.cursor/skills/asd-ste100`。
+安装器不认识这个名字时，把仓库里的 `skills/stc-answer` 目录复制到该 Agent 的 skills 目录。Grok 用 `~/.grok/skills/stc-answer`。Claude Code 用 `~/.claude/skills/stc-answer`。Codex 用 `~/.codex/skills/stc-answer`。Cursor 用 `~/.cursor/skills/stc-answer`。
 
 4. 已经安装时，更新：
 
 ```bash
-npx skills update asd-ste100 -y
+npx skills update stc-answer -y
 ```
 
 5. 检查：
 
 ```bash
-dir=$(ls -d ~/.grok/skills/asd-ste100 ~/.claude/skills/asd-ste100 ~/.codex/skills/asd-ste100 ~/.cursor/skills/asd-ste100 ~/.agents/skills/asd-ste100 ~/.copilot/skills/asd-ste100 ~/.gemini/skills/asd-ste100 ~/.config/opencode/skills/asd-ste100 2>/dev/null | head -1)
+dir=$(ls -d ~/.grok/skills/stc-answer ~/.claude/skills/stc-answer ~/.codex/skills/stc-answer ~/.cursor/skills/stc-answer ~/.agents/skills/stc-answer ~/.copilot/skills/stc-answer ~/.gemini/skills/stc-answer ~/.config/opencode/skills/stc-answer 2>/dev/null | head -1)
 node "$dir/scripts/am.mjs" --version
 python3 "$dir/scripts/ste-lint.py" --selftest
 python3 "$dir/stc/tools/check.py" --strict "$dir/stc/规范.md" "$dir/stc/examples/after.md"

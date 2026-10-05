@@ -8,8 +8,6 @@ npx skills add A3S-Lab/stc-answer -g -y --all
 
 需要 Node.js 20 或更高版本。渲染器已经在技能目录里，不必 `npm install`。
 
-仓库名是 `stc-answer`。装入 agent 后的目录名是 `asd-ste100`。
-
 ## 为什么用它
 
 一句里有多件事时，读者会读错。同一个概念有多个词时，读者也会读错。简明技术中文限制句长和用词。本仓库把这套规则交给 coding agent。
@@ -28,7 +26,7 @@ npx skills add A3S-Lab/stc-answer -g -y --all
 2. 切换到 `/opt` 目录。
 3. 创建工作目录 `/opt/collector`。工作目录存放配置文件和临时数据。
 
-全文在 [`skills/asd-ste100/stc/examples/`](skills/asd-ste100/stc/examples/)。
+全文在 [`skills/stc-answer/stc/examples/`](skills/stc-answer/stc/examples/)。
 
 ## 你说什么，Agent 做什么
 
@@ -39,12 +37,12 @@ npx skills add A3S-Lab/stc-answer -g -y --all
 | 用英文改写这条工具说明 | 按英文结构规则改写，并用 `ste-lint.py` 检查 |
 | `ls` 怎么看隐藏文件 | 一两句中文，不出页面 |
 
-技能怎么判断，写在 [`skills/asd-ste100/SKILL.md`](skills/asd-ste100/SKILL.md)。
+技能怎么判断，写在 [`skills/stc-answer/SKILL.md`](skills/stc-answer/SKILL.md)。
 
 ## 边界
 
-- 中文遵循简明技术中文 0.2。操作句不超过 30 字。描述句不超过 40 字。规范在 [`stc/规范.md`](skills/asd-ste100/stc/规范.md)。
-- 英文只检查句子结构。脚本是 [`scripts/ste-lint.py`](skills/asd-ste100/scripts/ste-lint.py)。本仓库没有 ASD-STE100 词典。
+- 中文遵循简明技术中文 0.2。操作句不超过 30 字。描述句不超过 40 字。规范在 [`stc/规范.md`](skills/stc-answer/stc/规范.md)。
+- 英文只检查句子结构。脚本是 [`scripts/ste-lint.py`](skills/stc-answer/scripts/ste-lint.py)。本仓库没有 ASD-STE100 词典。
 - 不用于营销文案、法律原文和代码本身。
 
 简明技术中文按中文重写了规则。它不是 ASD-STE100 的译本，与 ASD 没有关系。官方英文文本向 [asd-ste100.org](https://www.asd-ste100.org/STE_downloads.html) 申请。
@@ -63,18 +61,18 @@ npx skills add A3S-Lab/stc-answer -g -y -a grok
 
 ## 手动复制
 
-把 `skills/asd-ste100` 复制到下表的目录。
+把 `skills/stc-answer` 复制到下表的目录。
 
 | Agent | 全局目录 |
 | --- | --- |
-| Claude Code | `~/.claude/skills/asd-ste100` |
-| Codex | `~/.codex/skills/asd-ste100` |
-| Cursor | `~/.cursor/skills/asd-ste100` |
-| GitHub Copilot | `~/.copilot/skills/asd-ste100` |
-| Gemini CLI | `~/.gemini/skills/asd-ste100` |
-| Grok | `~/.grok/skills/asd-ste100` |
-| OpenCode | `~/.config/opencode/skills/asd-ste100` |
-| 读取 `.agents/skills` 的 agent | `~/.agents/skills/asd-ste100` |
+| Claude Code | `~/.claude/skills/stc-answer` |
+| Codex | `~/.codex/skills/stc-answer` |
+| Cursor | `~/.cursor/skills/stc-answer` |
+| GitHub Copilot | `~/.copilot/skills/stc-answer` |
+| Gemini CLI | `~/.gemini/skills/stc-answer` |
+| Grok | `~/.grok/skills/stc-answer` |
+| OpenCode | `~/.config/opencode/skills/stc-answer` |
+| 读取 `.agents/skills` 的 agent | `~/.agents/skills/stc-answer` |
 
 各 agent 的项目目录以 `npx skills add --help` 为准。
 
@@ -91,9 +89,9 @@ npx skills add A3S-Lab/stc-answer -g -y -a grok
 ## 本地检查
 
 ```bash
-node skills/asd-ste100/scripts/am.mjs --version
-python3 skills/asd-ste100/scripts/ste-lint.py --selftest
-python3 skills/asd-ste100/stc/tools/check.py --strict skills/asd-ste100/stc/规范.md skills/asd-ste100/stc/examples/after.md
+node skills/stc-answer/scripts/am.mjs --version
+python3 skills/stc-answer/scripts/ste-lint.py --selftest
+python3 skills/stc-answer/stc/tools/check.py --strict skills/stc-answer/stc/规范.md skills/stc-answer/stc/examples/after.md
 ```
 
 ## English
@@ -106,6 +104,6 @@ stc-answer is an agent skill. It writes Simplified Technical Chinese. A complex 
 npx skills add A3S-Lab/stc-answer -g -y --all
 ```
 
-HTML pages need Node.js 20 or newer. The skill directory is `skills/asd-ste100`. This repository omits the ASD-STE100 dictionary.
+HTML pages need Node.js 20 or newer. The skill directory is `skills/stc-answer`. This repository omits the ASD-STE100 dictionary.
 
 <!-- stc:on -->

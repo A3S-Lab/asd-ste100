@@ -1,5 +1,5 @@
 ---
-name: asd-ste100
+name: stc-answer
 description: >-
   中文用简明技术中文（STC），这是 ASD-STE100 的中文替代规范，不是它的译本。
   默认简体中文。复杂问题写成一页 HTML。用户说「简明技术中文」「STC」「受控中文」
@@ -10,7 +10,7 @@ description: >-
 license: MIT
 compatibility: HTML 页需要 Node.js 20 或更高版本。中文检查需要 Python 3.9 或更高版本。英文结构检查需要 Python 3。
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   upstream-html: QingYunA/answer-me-with-html@0.4.9
   upstream-ste: danyuchn/asd-ste100-skill@32511c6992ecb5f1971e46a2943f2e6adceedafe
   upstream-stc: mzopedia/simplified-technical-chinese@90ad0f004b26d7a66e286980b5efaf4769ad8584
@@ -252,7 +252,7 @@ python3 "$SKILL_DIR/scripts/ste-lint.py" -- 文件或标准输入
 本技能是一份 skill，不是 Claude Code 插件。更新时运行：
 
 ```bash
-npx skills update asd-ste100 -y
+npx skills update stc-answer -y
 ```
 
 用 git 克隆安装时，在仓库目录执行 `git pull`。

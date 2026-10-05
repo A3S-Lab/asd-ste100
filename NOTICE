@@ -5,7 +5,7 @@ ASD-STE100 or its approved-word dictionary.
 - Chinese specification, word list, and checker `stc/tools/check.py`
   Upstream: https://github.com/mzopedia/simplified-technical-chinese
   Commit: 90ad0f004b26d7a66e286980b5efaf4769ad8584
-  Specification and word list: CC BY 4.0, see skills/asd-ste100/stc/LICENSE-CC-BY-4.0
+  Specification and word list: CC BY 4.0, see skills/stc-answer/stc/LICENSE-CC-BY-4.0
   Copyright (c) 2026 mzopedia
   Checker script: MIT, copyright (c) 2026 mzopedia
   This is the Chinese controlled-language substitute used by the skill.
