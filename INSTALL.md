@@ -42,6 +42,7 @@ npx skills update asd-ste100 -y
 dir=$(ls -d ~/.grok/skills/asd-ste100 ~/.claude/skills/asd-ste100 ~/.codex/skills/asd-ste100 ~/.cursor/skills/asd-ste100 ~/.agents/skills/asd-ste100 ~/.copilot/skills/asd-ste100 ~/.gemini/skills/asd-ste100 ~/.config/opencode/skills/asd-ste100 2>/dev/null | head -1)
 node "$dir/scripts/am.mjs" --version
 python3 "$dir/scripts/ste-lint.py" --selftest
+python3 "$dir/stc/tools/check.py" --strict "$dir/stc/规范.md" "$dir/stc/examples/after.md"
 ```
 
 6. 用一则消息报告：装到了哪个目录，版本号，`ste-lint.py --selftest` 是否通过，用户还要做什么。没有后续动作时写「无」。

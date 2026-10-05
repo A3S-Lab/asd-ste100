@@ -1,8 +1,15 @@
+The files skills/asd-ste100/stc/规范.md, 词表.md, docs/校准报告.md, and examples/
+are licensed under CC BY 4.0. See skills/asd-ste100/stc/LICENSE-CC-BY-4.0.
+The file skills/asd-ste100/stc/tools/check.py is MIT, copyright (c) 2026 mzopedia.
+
+All other files in this repository are under the MIT License below.
+
 MIT License
 
 Copyright (c) 2026 A3S-Lab
 Copyright (c) 2026 Dustin Yuchen Teng
 Copyright (c) 2026 Answer me with HTML contributors
+Copyright (c) 2026 mzopedia
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

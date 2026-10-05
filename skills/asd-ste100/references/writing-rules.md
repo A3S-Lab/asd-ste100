@@ -1,16 +1,27 @@
 # 受控写法：规则来源
 
-本文件说明规则从哪来。操作时以 `SKILL.md` 里的句长和步骤为准。
+中文和英文用两套规范。操作步骤以 `SKILL.md` 为准。本文件只说明来源。
+
+## 中文：简明技术中文
+
+中文替代品是简明技术中文（Simplified Technical Chinese，STC）0.2。作者是 mzopedia。它不是 ASD-STE100 的译本，与 ASD 没有关系。
+
+本技能收录的副本：
+
+- `stc/规范.md`：6 节，40 条。操作句不超过 30 字。描述句不超过 40 字。
+- `stc/词表.md`：禁用词、选词、一词一义。约 170 条。
+- `stc/tools/check.py`：零依赖检查脚本。
+- `stc/docs/校准报告.md`：句长阈值的校准说明。
+
+文本许可是 CC BY 4.0。脚本许可是 MIT。上游是 <https://github.com/mzopedia/simplified-technical-chinese>，提交 `90ad0f004b26d7a66e286980b5efaf4769ad8584`。
+
+`scripts/am.mjs` 里还有一份更短的中文提示。那些提示不代替 STC。中文以 `stc/tools/check.py` 为准。
+
+## 英文：ASD-STE100 的结构规则
 
 本仓库不收录 ASD-STE100 正文，也不收录它约 900 个核准词的词典。需要核准英文用词时，向官方申请 Issue 9（2025 年 1 月）：<https://www.asd-ste100.org/STE_downloads.html>。
 
-## 中文优先
-
-默认用简体中文。用户明确要求其他语言时，改用该语言。
-
-中文句子的机器检查在 `scripts/am.mjs` 里。它按字符数限制句长，并提示轻动词、套话和连续的「的」。这些中文词表来自 Answer me with HTML，并指向 [Simplified Technical Chinese](https://github.com/mzopedia/simplified-technical-chinese)。它们不是 ASD 词典。
-
-`scripts/ste-lint.py` 只检查英文的结构。它不认识中文词表。
+`scripts/ste-lint.py` 只检查英文的结构。它不检查中文，也不对照 ASD 词典。
 
 ## 英文结构规则
 

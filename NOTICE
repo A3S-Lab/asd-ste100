@@ -1,5 +1,15 @@
+<!-- stc:off -->
 This skill combines two MIT projects. It does not include the text of
 ASD-STE100 or its approved-word dictionary.
+
+- Chinese specification, word list, and checker `stc/tools/check.py`
+  Upstream: https://github.com/mzopedia/simplified-technical-chinese
+  Commit: 90ad0f004b26d7a66e286980b5efaf4769ad8584
+  Specification and word list: CC BY 4.0, see skills/asd-ste100/stc/LICENSE-CC-BY-4.0
+  Copyright (c) 2026 mzopedia
+  Checker script: MIT, copyright (c) 2026 mzopedia
+  This is the Chinese controlled-language substitute used by the skill.
+  It is not a translation of ASD-STE100 and is not affiliated with ASD.
 
 - Writing rules and scripts/ste-lint.py
   Upstream: https://github.com/danyuchn/asd-ste100-skill
@@ -16,6 +26,6 @@ ASD-STE100 or its approved-word dictionary.
 
 ASD-STE100 Issue 9 is the authority for approved English wording.
 Request it from https://www.asd-ste100.org/STE_downloads.html.
-The Chinese checks inside am.mjs follow the lists shipped by
-Answer me with HTML. Those lists cite Simplified Technical Chinese:
-https://github.com/mzopedia/simplified-technical-chinese
+Chinese text in this skill follows Simplified Technical Chinese.
+The shorter Chinese warnings inside am.mjs do not replace that specification.
+<!-- stc:on -->
